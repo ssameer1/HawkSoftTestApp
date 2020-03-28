@@ -1,0 +1,31 @@
+﻿@model IEnumerable<User>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Displaying Only List of Users</h1>
+<div>Insert New User @Html.ActionLink("Insert", "Create", "User")</div>
+
+<div>
+    <div class="row">
+        <div class="col-2">FirstName</div>
+        <div class="col-2">LastName</div>
+        <div class="col-2">Email</div>
+        <div class="col-2">PhoneNumber</div>
+        <div class="col-2">Address</div>
+    </div>
+    @foreach (var item in Model)
+    {
+    <div class="row">
+        <div class="col-2">@Html.DisplayFor(m => item.FirstName)</div>
+        <div class="col-2">@Html.DisplayFor(m => item.LastName)</div>
+        <div class="col-2">@Html.DisplayFor(m => item.Email)</div>
+        <div class="col-2">@Html.DisplayFor(m => item.PhoneNumber)</div>
+        <div class="col-2">@Html.DisplayFor(m => item.Address)</div>
+        <div class="col-1">@Html.ActionLink("Edit", "Edit", "User", new  { id = item.UserId })</div>
+    </div>
+    }
+</div>
+
